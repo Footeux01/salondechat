@@ -32,18 +32,15 @@
 
 	//Regex Pseudo
 	if (isset($_POST['pseudo'])){
-	    $_POST['pseudo'] != htmlspecialchars($_POST['pseudo']);
-		//$pseudo = htmlspecialchars($_POST['pseudo']);
-		if(preg_match("/^([A-Z]|[a-z]|[0-9]|[_])+$/", $pseudo) == 1){
-	        echo 'Le' . $_POST['pseudo'] . ' n\'est pas valide, recommencez !';
+		if(preg_match('/^([A-Z]|[a-z]|[0-9]|[_])+$/', $pseudo) == 0){
+	        echo 'Le'.$_POST['pseudo'].' n\'est pas valide, recommencez !';
+	        exit;
 	    }
 	}
 
 	//Regex Mot de Passe
 	if (isset($_POST['password'])){
-	    $_POST['pseudo'] = htmlspecialchars($_POST['password']);
-		//$pseudo = htmlspecialchars($_POST['pseudo']);
-		if(preg_match("/^([A-Z]|[a-z]|[0-9])+$/", $password) == 1){
+		if(preg_match("/^([A-Z]|[a-z]|[0-9])+$/", $password) == 0){
 		    echo 'Le ' . $_POST['password'] . 'est bien écrit avec : Seul les caractères alpha-numérique et le _ sont acceptés';
 		}
 		else
@@ -53,9 +50,7 @@
 	}
 
 	if (isset($_POST['password1'])){
-	    $_POST['pseudo'] = htmlspecialchars($_POST['password1']);
-		//$pseudo = htmlspecialchars($_POST['pseudo']);
-		if(preg_match("/^([A-Z]|[a-z]|[0-9])+$/", $password1) == 1){
+		if(preg_match("/^([A-Z]|[a-z]|[0-9])+$/", $password1) == 0){
 		    echo 'Le ' . $_POST['password1'] . 'est bien écrit avec : Seul les caractères alpha-numérique et le _ sont acceptés';
 		}
 		else
@@ -67,9 +62,7 @@
 
 	//Regex E-mail
 	if (isset($_POST['email'])){
-	    $_POST['email'] = htmlspecialchars($_POST['email']); // On rend inoffensives les balises HTML que le visiteur a pu rentrer
-
-	    if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email'])){
+if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email'])){
 	        echo 'L\'adresse ' . $_POST['email'] . ' est <strong>valide</strong> !';
 	    }
 	    else
