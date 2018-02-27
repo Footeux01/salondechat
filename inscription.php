@@ -34,9 +34,16 @@
 								<input type="password" name="password" required="">
 
 								<label>Retaper Mot de Passe :</label>
-								<input type="password" name="password2" required="">
+								<input type="password" name="password1" required="">
 
 					        <button type="submit" action="enregistrement">Envoyer !</button>
+
+					        <!-- <button
+								class="g-recaptcha"
+								data-sitekey="6LcJpkgUAAAAADoixNCegE_mGmJafPc6V3PGPGYF"
+								data-callback="YourOnSubmitFn">
+							Envoyer !
+							</button> -->
 				      	</form>
 					</div>
 			    </div>
