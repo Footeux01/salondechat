@@ -38,31 +38,42 @@
 	    }
 	}
 
-	//Regex Mot de Passe
-	if (isset($_POST['password'])){
-		if(preg_match("/^([A-Z]|[a-z]|[0-9])+$/", $password) == 0){
-		    echo 'Le ' . $_POST['password'] . 'est bien écrit avec : Seul les caractères alpha-numérique et le _ sont acceptés';
-		}
-		else
-	    {
-	        echo 'Le' . $_POST['password'] . ' n\'est pas valide, recommencez !';
-	    }
-	}
+	/*
+	  Nous voulons juste hacher notre mot de passe en utiliant l'algorithme par défaut.
+	  Actuellement, il s'agit de BCRYPT, ce qui produira un résultat sous forme de chaîne de
+	  caractères d'une longueur de 60 caractères.*/
 
-	if (isset($_POST['password1'])){
-		if(preg_match("/^([A-Z]|[a-z]|[0-9])+$/", $password1) == 0){
-		    echo 'Le ' . $_POST['password1'] . 'est bien écrit avec : Seul les caractères alpha-numérique et le _ sont acceptés';
+	$ph = password_hash($password, PASSWORD_BCRYPT);
+		if($ph == FALSE){
+			echo "Veuillez réessayer le mot de passe n'a pas pu être crypter";
+			exit;
 		}
-		else
-	    {
-	        echo 'Le' . $_POST['password1'] . ' n\'est pas valide, recommencez !';
-	    }
-	}
+
+	// //Regex Mot de Passe
+	// if (isset($_POST['password'])){
+	// 	if(preg_match("/^([A-Z]|[a-z]|[0-9]{1})+$/", $password) == 0){
+	// 	    echo 'Le ' . $_POST['password'] . 'est bien écrit avec : Seul les caractères alpha-numérique et le _ sont acceptés';
+	// 	}
+	// 	else
+	//     {
+	//         echo 'Le' . $_POST['password'] . ' n\'est pas valide, recommencez !';
+	//     }
+	// }
+
+	// if (isset($_POST['password1'])){
+	// 	if(preg_match("/^([A-Z]|[a-z]|[0-9])+$/", $password1) == 0){
+	// 	    echo 'Le ' . $_POST['password1'] . 'est bien écrit avec : Seul les caractères alpha-numérique et le _ sont acceptés';
+	// 	}
+	// 	else
+	//     {
+	//         echo 'Le' . $_POST['password1'] . ' n\'est pas valide, recommencez !';
+	//     }
+	// }
 	
 
 	//Regex E-mail
 	if (isset($_POST['email'])){
-if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email'])){
+		if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email'])){
 	        echo 'L\'adresse ' . $_POST['email'] . ' est <strong>valide</strong> !';
 	    }
 	    else
@@ -80,22 +91,35 @@ if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email']))
 
 	 //   return in_array($domain,$domains);
 
-	    if (in_array($domain,$domaines)) {
+	    if (in_array($domain,$domaines)){
 			echo "Utilisation d'E-Mail frauduleux interdit !";
 			exit;
 		}
 
-	// Insertion du password2 à l'aide d'une requête préparée
-	$req = $bdd->prepare('INSERT INTO inscription (pseudo, email, password) VALUES(:pseudo, :email, :psw)');
-	$req->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
-	$req->bindParam(':email', $email, PDO::PARAM_STR);
-	$req->bindParam(':psw', $password, PDO::PARAM_STR);
+	// Insertion du password à l'aide d'une requête préparée
+	$reponse = $bdd->prepare('INSERT INTO inscription (pseudo, email, password) VALUES(:pseudo, :email, :psw)');
+	$reponse->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
+	$reponse->bindParam(':email', $email, PDO::PARAM_STR);
+	$reponse->bindParam(':psw', $ph, PDO::PARAM_STR);
 
-	if(! $req->execute()){
+	if(! $reponse->execute()){
 		echo 'ERREUR BDD';
 		exit;
 	}
 
+	$reponse = $bdd->query('SELECT pseudo FROM inscription WHERE pseudo = "' . $_POST['pseudo'] . '" ');
+            // $pseudo = $reponse->fetch();
+             
+        if (($_POST['pseudo']) == ($pseudo['pseudo'])){
+            echo "Le pseudo est déjà utilisé.";
+        }
+
+	$reponse = $bdd->query('SELECT email FROM inscription WHERE email = "' . $_POST['email'] . '" ');
+            // $email = $reponse->fetch();
+             
+        if (($_POST['email']) == ($email['email'])){
+            echo "Cette adresse e-mail est déjà utilisé.";
+        }
 	
 	/*
 	switch($pseudo){
@@ -109,9 +133,7 @@ if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email']))
 
 	$_SESSION['pseudo'] = $pseudo;
 	$_SESSION['email']   = $email;
-	$_SESSION['password'] = $password;
-
-
+	$_SESSION['password'] = $ph;
 
 	// Redirection du visiteur vers la page du bienvenue
 	header('Location: bienvenue.php');

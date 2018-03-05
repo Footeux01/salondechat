@@ -1,10 +1,5 @@
 <?php
 	session_start();
-
-	$pseudo = $_SESSION['pseudo'] ;
-	$email = $_SESSION['email'] ;
-	$password = $_SESSION['password'] ;
-
 ?>
 
 <!DOCTYPE html>
@@ -38,9 +33,9 @@
 			    	Voici ton e-mail de connexion : 
 			    	<?php echo $_SESSION['email']; ?>.<br>  
 
-			    	Ceci <?php echo $_SESSION['password']; ?> est le mot de passe que vous avez saisi et enregistré.<br>   
+			    	Le mot de passe que vous avez saisi a bien été enregistré.<br>   
 
-			    	Pour continuer cliquez <a href="minichat.php">ici</a> 
+			    	Pour avoir accès au chat --> <a href="minichat.php">cliquez ici</a> 
 			    	<a><img border="0" src="http://www.gifszone.com/content/smile/miscellaneous/smile_105.gif"></a>
 
 			    </p>

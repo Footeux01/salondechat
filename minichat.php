@@ -1,5 +1,9 @@
 <?php
     session_start();
+
+    $pseudo = $_SESSION['pseudo'] ;
+    $email = $_SESSION['email'] ;
+    $password = $_SESSION['password'] ;
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +23,9 @@
             <body>
                 <form action="minichat_post.php" method="post">
 
-                    <h1 id="minichat">Discutez librement <a><img border="0" src="http://www.gifszone.com/content/smile/miscellaneous/smile_105.gif"></a></h1>
+                    <h1 id="minichat">Discutez librement 
+                        <a><img border="0" src="http://www.gifszone.com/content/smile/miscellaneous/smile_105.gif"></a>
+                    </h1>
 
                     <p id="pseudo">
                         <label for="pseudo">Envoyé votre message </label>  
@@ -33,35 +39,35 @@
                      </p>
                 </form>
 
-        <?php
+                <?php
 
-        // Connexion à la base de données
+                // Connexion à la base de données
+                try
+                {
+                    $bdd = new PDO('mysql:host=localhost;dbname=salon_de_chat;charset=utf8', 'root', '');
+                    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                }
 
-        try
-        {
-            $bdd = new PDO('mysql:host=localhost;dbname=salon_de_chat;charset=utf8', 'root', '');
-        }
+                catch(Exception $e)
 
-        catch(Exception $e)
-
-        {
-            die('Erreur : '.$e->getMessage());
-        }
+                {
+                    die('Erreur : '.$e->getMessage());
+                }
 
 
-        // Récupération des 10 derniers messages
-        $reponse = $bdd->query('SELECT pseudo, message FROM mini_chat');
+                // Récupération des 10 derniers messages
+                $reponse = $bdd->query('SELECT pseudo, message FROM minichat');
 
-        // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
+                // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
 
-        while ($donnees = $reponse->fetch())
-        {
-            echo '<p><strong>' . htmlspecialchars($donnees['pseudo']) . '</strong> : ' . htmlspecialchars($donnees['message']) . '</p>';
-        }
+                while ($donnees = $reponse->fetch())
+                {
+                    echo '<p id="messages"><strong>' . htmlspecialchars($donnees['pseudo']) . '</strong> : ' . htmlspecialchars($donnees['message']) . '</p>';
+                }
 
-        $reponse->closeCursor();
+                $reponse->closeCursor();
 
-        ?>
+                ?>
 
             </body>
 
