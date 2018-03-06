@@ -25,16 +25,16 @@
 				      	<form method="post" action="enregistrement.php">
 					        <h2 class="form-signin-heading" id="titre">S'inscrire</h2>
 					        	<label>Pseudo :</label>
-								<input type="text" name="pseudo" required="">
+								<input type="text" name="pseudo" class="form-control" required="">
 								
 								<label>E-mail :</label>
-								<input type="email" name="email" required="">
+								<input type="email" name="email" class="form-control" required="">
 
 								<label>Mot de Passe :</label>
-								<input type="password" name="password" required="">
+								<input type="password" name="password" class="form-control" required="">
 
 								<label>Retaper Mot de Passe :</label>
-								<input type="password" name="password1" required="">
+								<input type="password" name="password1" class="form-control" required="">
 
 					        <button type="submit" action="enregistrement">Envoyer !</button>
 

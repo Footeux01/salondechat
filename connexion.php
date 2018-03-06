@@ -16,10 +16,10 @@
 
       <form class="form-signin">
         <h2 class="form-signin-heading" id="titre">Accédez à la connexion</h2>
-        <label for="inputEmail" type="text" name="email" class="sr-only input_field">Adresse E-Mail</label>
-        <input id="inputEmail" class="form-control" placeholder="Adresse E-Mail" required="" autofocus="" type="email">
-        <label for="inputPassword" type="password" name="email" class="sr-only input_field">Mot de Passe</label>
-        <input id="inputPassword" class="form-control" placeholder="Mot de Passe" required="" type="password">
+        <label for="email" type="text" name="email" class="sr-only input_field">Adresse E-Mail</label>
+        <input id="email" class="form-control" placeholder="Adresse E-Mail" required="" autofocus="" type="email">
+        <label for="password" type="password" name="email" class="sr-only input_field">Mot de Passe</label>
+        <input id="password" class="form-control" placeholder="Mot de Passe" required="" type="password">
         <div class="checkbox">
           <label>
             <input value="remember-me" type="checkbox"> Se souvenir de moi ?
@@ -52,10 +52,4 @@
         else{
           echo "Veuillez réessayer le mot de passe crypté n'a pas été retrouver";
       } -->
-
-
-2
-3
-4
-  
 
