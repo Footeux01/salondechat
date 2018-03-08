@@ -28,7 +28,10 @@ label{
 	font-family: 'Courgette', cursive;
 	color: silver;
 	font-size: 20px;
-	margin-bottom: 10%
+}
+
+#espace_heure{
+	padding-top: 5%;
 }
 
 .img-rounded{
