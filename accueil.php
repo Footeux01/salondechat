@@ -4,6 +4,8 @@
 
 			<title>MCG | Bienvenue sur l'accueil</title>
 
+			<script type="text/javascript" src="./js/date_heure.js"></script>
+
 			<?php include("inc/header.php"); ?>
 
 		</head>
@@ -20,25 +22,14 @@
 		    </div>
 
 			<div class="container">
-	    		<div class="row">
-			      	<form class="form-signin">
-				        <h2 class="form-signin-heading" id="titre">Connexion</h2>
-				        	<label for="inputEmail" class="sr-only">Adresse E-Mail</label>
-				        	<input id="inputEmail" class="form-control" placeholder="Adresse E-Mail" required="" autofocus="" type="email">
+				<h1 id="youyou">Bienvenue sur le Messenger Chat General by MCG</h1>
+					<span id="date_heure"></span>
+            		<script> window.onload = date_heure('date_heure');</script>
 
-				        	<label for="inputPassword" class="sr-only">Mot de Passe</label>
-				        	<input id="inputPassword" class="form-control" placeholder="Mot de Passe" required="" type="password">
-
-				        <div class="checkbox">
-				          	<label>
-				            	<a href="inscription.php"> S'inscrire |</a>
-				            	<a href="motdepasseoublie.php"> Mot de Passe Oublié</a><br>
-				          	</label>
-				        </div>
-
-				        <button class="btn btn-lg btn-primary btn-block" type="submit">Se connecter</button>
-			      	</form>
-				</div>
+					<p>Vous vous sentez seule ? Vous cherchez de la compagnie ? <br> Vous vous trouvez au bon endroit car <a href="accueil">"Messenger Chat General"</a> rassemble une communauté de personne qui cherche à se divertir</p>
+				    <a class="myButton" href="connexion.php"> Déjà un inscrit ? Connectez-vous ! </a><br>
+	            	<p> Pas de compte ? <a href="inscription.php">Cliquez-ici</a> pour vous inscrire </p><br>
+	            	<p> Mot de Passe Oublié ? Suivez ce <a href="motdepasseoublie.php">lien</a> pour pouvoir le récupérer </p><br>
 		    </div>
 		</body>
 	</html>

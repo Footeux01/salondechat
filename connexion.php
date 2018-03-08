@@ -35,7 +35,7 @@
 
           //Connexion à la base de données
           try{
-              $bdd = mysql_connect('localhost', 'root', ''); 
+              $bdd = new PDO('mysql:host=localhost;dbname=salon_de_chat;charset=utf8', 'root', ''); 
           }
 
           catch(Exception $e){
