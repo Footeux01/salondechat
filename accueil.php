@@ -26,10 +26,12 @@
 					<span id="date_heure"></span>
             		<script> window.onload = date_heure('date_heure');</script>
 
+            	<div id="espace">
 					<p id="espace_heure">Vous vous sentez seule ? Vous cherchez de la compagnie ? <br> Vous vous trouvez au bon endroit car <a href="accueil">"Messenger Chat General"</a> rassemble une communauté de personne qui cherche à se divertir</p>
 				    <a class="myButton" href="connexion.php"> Déjà un inscrit ? Connectez-vous ! </a><br>
 	            	<p> Pas de compte ? <a href="inscription.php">Cliquez-ici</a> pour vous inscrire </p><br>
 	            	<p> Mot de Passe Oublié ? Suivez ce <a href="motdepasseoublie.php">lien</a> pour pouvoir le récupérer </p><br>
+	            </div>
 		    </div>
 		</body>
 	</html>

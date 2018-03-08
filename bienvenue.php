@@ -33,7 +33,7 @@
 			    	Voici ton e-mail de connexion : 
 			    	<?php echo $_SESSION['email']; ?>.<br>  
 
-			    	Le mot de passe que vous avez saisi a bien été enregistré.<br>   
+			    	Le mot de passe que vous avez saisi a bien été enregistrer.<br>   
 
 			    	Pour avoir accès au chat --> <a href="minichat.php">cliquez ici</a> 
 			    	<a><img border="0" src="http://www.gifszone.com/content/smile/miscellaneous/smile_105.gif"></a>
