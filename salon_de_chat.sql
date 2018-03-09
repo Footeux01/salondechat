@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 13 fév. 2018 à 09:54
+-- Généré le :  ven. 09 mars 2018 à 09:16
 -- Version du serveur :  5.7.19
 -- Version de PHP :  7.1.9
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `inscription` (
   `password` varchar(300) NOT NULL,
   `date_enregistrement` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `inscription`
@@ -54,7 +54,10 @@ INSERT INTO `inscription` (`id_user`, `pseudo`, `email`, `password`, `date_enreg
 (9, '0000', 'bqd@khdlgs.fr', '0000', '2018-02-09 12:52:04'),
 (10, '0000', 'bqd@khdlgs.fr', 'hhhh', '2018-02-09 12:56:02'),
 (11, 'coucou', 'coucou@admin.fr', 'coucou', '2018-02-09 14:05:53'),
-(12, 'lol', 'lol@lol.lol', 'lol', '2018-02-09 15:58:18');
+(12, 'lol', 'lol@lol.lol', 'lol', '2018-02-09 15:58:18'),
+(13, 'superman03', 'lol@hotmail.fr', '$2y$10$GJofVwW4BNRzQfU1SCTYNuQKqPaf/XvUZRmD.r44/sfoCe6173BIe', '2018-03-07 15:56:56'),
+(14, 'footeux01', 'Lormelet01@hotmail.fr', '$2y$10$FRrPFBHx.kCVQWQvvrs/ZOv4LuiFnemV2FA8msYOzqw6U6lBsgsq.', '2018-03-08 14:30:34'),
+(15, 'Footeux01', 'Lormelet01@hotmail.fr', '$2y$10$qHMZiToUNTj0sP0TQpH5A.G0a.up0KPrEgNayPX8jOybFlvTYmzuy', '2018-03-08 15:09:36');
 
 -- --------------------------------------------------------
 
@@ -70,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `minichat` (
   `message` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_message`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `minichat`
@@ -80,7 +83,9 @@ INSERT INTO `minichat` (`id_message`, `id_user`, `pseudo`, `message`, `created_a
 (1, NULL, 'coucou', 'cc', '2018-02-09 15:50:00'),
 (2, NULL, 'coucou', 'cc', '2018-02-09 15:50:35'),
 (3, NULL, 'coucou', 'coucou', '2018-02-09 15:50:46'),
-(4, NULL, 'lol', 'lol', '2018-02-09 15:58:27');
+(4, NULL, 'lol', 'lol', '2018-02-09 15:58:27'),
+(5, NULL, 'superman03', 'enfin connecté', '2018-03-07 15:57:07'),
+(6, NULL, 'footeux01', 'tg', '2018-03-08 14:32:54');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
