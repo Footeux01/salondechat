@@ -2,13 +2,7 @@
 	session_start();
 
 	// Connexion à la base de données
-	try{
-	    $bdd = new PDO('mysql:host=localhost;dbname=salon_de_chat;charset=utf8', 'root', '');
-	}
-
-	catch(Exception $e){
-	    die('Erreur : '.$e->getMessage());
-	}
+	include("inc/base_de_donnes.php");
 
 	$pseudo = filter_input(INPUT_POST, 'pseudo', FILTER_SANITIZE_STRING);
 	$email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);

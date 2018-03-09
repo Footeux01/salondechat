@@ -1,5 +1,6 @@
 <?php
   session_start();
+  include("inc/base_de_donnes.php");
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +15,7 @@
     <body>
       <div class="container">
 
-      <form class="form-signin">
+      <form method="post" action="bienvenue.php" class="form-signin">
         <h2 class="form-signin-heading" id="titre">Accédez à la connexion</h2>
         <label for="email" type="text" name="email" class="sr-only input_field">Adresse E-Mail</label>
         <input id="email" class="form-control" placeholder="Adresse E-Mail" required="" autofocus="" type="email">
@@ -33,7 +34,7 @@
 
   </html>
 
-<!--   if(password_verify($_POST["password"],$ph)){
+<!--  if(password_verify($_POST["password"],$ph)){
         echo "Vous allez être rediriger sur le chat en ligne";
       }
         else{
