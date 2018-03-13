@@ -15,7 +15,7 @@
     <body>
       <div class="container">
 
-      <form method="post" action="base_de_donnes.php" class="form-signin">
+      <form method="post" action="/inc/base_de_donnes.php" class="form-signin">
         <h2 class="form-signin-heading" id="titre">Accédez à la connexion</h2>
         <label for="email" type="text" name="email" class="sr-only input_field">Adresse E-Mail</label>
         <input id="email" class="form-control" placeholder="Adresse E-Mail" required="" autofocus="" type="email">

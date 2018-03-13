@@ -10,3 +10,50 @@
 	}
 
 ?>
+
+
+<?php
+	/* Connexion à une base ODBC avec l'invocation de pilote */
+	// $bdd = ('mysql:host=localhost;dbname=salon_de_chat;charset=utf8', 'root', '');
+	// $email = 'email';
+	// $password = 'password';
+
+	// try {
+	//     $bdd = new PDO($bdd, $email, $password);
+	// } catch (PDOException $e) {
+	//     echo 'Connexion échouée : ' . $e->getMessage();
+	// }
+
+
+	do{
+		if(! isset($_POST['email'], $_POST['password']))
+			break;
+		
+		$reponse = $bdd->prepare("SELECT * FROM inscription WHERE email = ? ");
+		$reponse->bindParam( $_POST['email'], PDO::PARAM_STR, 21);
+		$reponse->execute();
+
+		if($reponse->rowCount() == 0){
+			echo 'ERREUR : Ce pseudo n\'existe pas';
+			break;
+		}                                                                        
+
+		$pseudo = ['pseudo'];
+		$email = ['email'];                                                                                                                   
+
+		$email = $reponse->fetch(PDO::FETCH_ASSOC);
+		$ph = $email['password'];
+		
+		if (! password_verify($_POST['password'], $ph)) {
+			echo 'Le mot de passe est invalide.';
+			break;
+		}
+	}while(false);
+
+	$_SESSION['pseudo'] = $pseudo;
+	$_SESSION['email']   = $email;
+	$_SESSION['password'] = $ph;
+
+	// Redirection du visiteur vers la page du bienvenue
+	header('Location: /minichat.php');
+?>
