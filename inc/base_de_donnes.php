@@ -30,7 +30,7 @@
 			break;
 		
 		$reponse = $bdd->prepare("SELECT * FROM inscription WHERE email = ? ");
-		$reponse->bindParam( $_POST['email'], PDO::PARAM_STR, 21);
+		$reponse->bindParam( $_POST['email'], PDO::PARAM_STR);
 		$reponse->execute();
 
 		if($reponse->rowCount() == 0){
@@ -38,11 +38,10 @@
 			break;
 		}                                                                        
 
-		$pseudo = ['pseudo'];
-		$email = ['email'];                                                                                                                   
-
-		$email = $reponse->fetch(PDO::FETCH_ASSOC);
-		$ph = $email['password'];
+		$user_bdd = $reponse->fetch(PDO::FETCH_ASSOC);
+		$pseudo = $user_bdd['pseudo'];
+		$email = $user_bdd['email'];
+		$ph = $user_bdd['password'];
 		
 		if (! password_verify($_POST['password'], $ph)) {
 			echo 'Le mot de passe est invalide.';
