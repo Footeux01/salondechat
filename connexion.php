@@ -1,6 +1,6 @@
 <?php
   session_start();
-  include("inc/base_de_donnes.php");
+  // include("inc/base_de_donnes.php");
 ?>
 
 <!DOCTYPE html>
@@ -17,10 +17,10 @@
 
       <form method="post" action="/inc/base_de_donnes.php" class="form-signin">
         <h2 class="form-signin-heading" id="titre">Accédez à la connexion</h2>
-        <label for="email" type="text" name="email" class="sr-only input_field">Adresse E-Mail</label>
-        <input id="email" class="form-control" placeholder="Adresse E-Mail" required="" autofocus="" type="email">
-        <label for="password" type="password" name="email" class="sr-only input_field">Mot de Passe</label>
-        <input id="password" class="form-control" placeholder="Mot de Passe" required="" type="password">
+        <label for="email" type="text" class="sr-only input_field">Adresse E-Mail</label>
+        <input id="email" class="form-control"  name="email" placeholder="Adresse E-Mail" required="" autofocus="" type="email">
+        <label for="password" type="password" class="sr-only input_field">Mot de Passe</label>
+        <input id="password" class="form-control" name="password" placeholder="Mot de Passe" required="" type="password">
         <div class="checkbox">
           <label>
             <input value="remember-me" type="checkbox"> Se souvenir de moi ?
