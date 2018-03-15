@@ -1,7 +1,7 @@
-<?php
-  session_start();
+<!-- <?php
+  //session_start();
   //include("inc/base_de_donnes.php");
-?>
+?> -->
 
 <?php
 
@@ -33,7 +33,7 @@
 	do{
 		if(! isset($_POST['email'], $_POST['password'])){
 			echo 'Une erreur innatendue c\'est produite';
-			break;
+			exit;
 		}
 		
 		$reponse = $bdd->prepare("SELECT * FROM inscription WHERE email = ? ");
@@ -41,9 +41,9 @@
 		$reponse->execute();
 
 		if($reponse->rowCount() == 0){
-			echo 'ERREUR : Ce pseudo n\'existe pas';
-			break;
-		}                                                                        
+			echo 'Ce pseudo n\'existe pas';
+			exit;
+		}                                                                
 
 		$user_bdd = $reponse->fetch(PDO::FETCH_ASSOC);
 		$pseudo = $user_bdd['pseudo'];
@@ -52,7 +52,7 @@
 		
 		if (! password_verify($_POST['password'], $ph)) {
 			echo 'Le mot de passe est invalide.';
-			break;
+			exit;
 		}
 		$_SESSION['pseudo'] = $pseudo;
 		$_SESSION['email']   = $email;

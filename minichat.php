@@ -3,11 +3,11 @@
 
     // Evalué à vrai car $var est vide
     if(empty($_SESSION['pseudo']) || empty($_SESSION['email']) || empty($_SESSION['password'])) {
-        echo 'Vous n\'avez pas renseigner tout les champs de connexion';
-            echo $_SESSION['pseudo'];
-            echo $_SESSION['email'];
-            echo $_SESSION['password'];
-        // header('Location: connexion.php');
+        echo 'Vous n\'êtes pas connecté';
+            // echo $_SESSION['pseudo'];
+            // echo $_SESSION['email'];
+            // echo $_SESSION['password'];
+        header('Location: connexion.php');
         exit;
     }
 
@@ -35,21 +35,20 @@
 
                     <?php include("inc/deconnexion.php"); ?>
 
-                <form action="minichat_post.php" method="post">
+                <form action="inc/minichat_post.php" method="post">
 
                     <h1 id="minichat">Discutez librement 
                         <a><img border="0" src="http://www.gifszone.com/content/smile/miscellaneous/smile_105.gif"></a>
                     </h1>
 
                     <p id="pseudo">
-                        <label for="pseudo">Envoyé votre message </label>  
+                        <label for="pseudo">Envoyez votre message </label>  
                         <?php echo $_SESSION['pseudo']; ?> <br />
 
                         <label for="message">Message à poster :</label>   
                         <input type="text" name="message" id="message" /><br />
 
-
-                        <input type="submit" value="Envoyer" />
+                        <input type="submit" class="btn btn-outline-warning" value="Envoyer" />
                      </p>
                 </form>
 
@@ -70,13 +69,13 @@
 
 
                 // Récupération des 10 derniers messages
-                $reponse = $bdd->query('SELECT pseudo, message FROM minichat');
+                $reponse = $bdd->query('SELECT created_at, pseudo, message FROM minichat');
 
                 // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
 
                 while ($donnees = $reponse->fetch())
                 {
-                    echo '<p id="messages"><strong>' . htmlspecialchars($donnees['pseudo']) . '</strong> : ' . htmlspecialchars($donnees['message']) . '</p>';
+                    echo '<p id="messages"> ' . htmlspecialchars ($donnees['created_at']) .' <strong>' . htmlspecialchars($donnees['pseudo']) . '</strong> : ' . htmlspecialchars($donnees['message']) . '</p>';
                 }
 
                 $reponse->closeCursor();

@@ -14,7 +14,7 @@
     </head>
     <body>
       <div class="container">
-
+        <?php include("inc/retour_accueil.php"); ?>
       <form method="post" action="/inc/base_de_donnes.php" class="form-signin">
         <h2 class="form-signin-heading" id="titre">Accédez à la connexion</h2>
         <label for="email" type="text" class="sr-only input_field">Adresse E-Mail</label>
@@ -26,7 +26,7 @@
             <input value="remember-me" type="checkbox"> Se souvenir de moi ?
           </label> -->
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
+        <button id="clic" type="submit" class="btn btn-outline-info">Connexion</button>
       </form>
 
     </div>

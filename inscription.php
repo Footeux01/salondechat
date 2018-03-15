@@ -21,14 +21,15 @@
 
 			<h1 id="titre">Inscription</h1><br>
 				<div class="container">
-				      	<form method="post" action="enregistrement.php">
-					        <h2 class="form-signin-heading" id="titre1">S'inscrire</h2>
-								<input type="text" name="pseudo" placeholder="Votre Pseudo :" class="form-control" required="">
-								<input type="email" name="email" placeholder="Votre E-mail :" class="form-control" required="">
-								<input type="password" name="password" placeholder="Votre Mot de Passe :" class="form-control" required="">
-								<input type="password" name="password1" placeholder="Veuillez Retaper Votre Mot de Passe :" class="form-control" required="">
+					<?php include("inc/retour_accueil.php"); ?>
+				      	<form method="post" action="inc/enregistrement.php">
+					        <h2 class="form-signin-heading" id="titre1">S'inscrire</h2><br>
+								<input type="text" name="pseudo" placeholder="Votre Pseudo :" class="form-control" required=""><br>
+								<input type="email" name="email" placeholder="Votre E-mail :" class="form-control" required=""><br>
+								<input type="password" name="password" placeholder="Votre Mot de Passe :" class="form-control" required=""><br>
+								<input type="password" name="password1" placeholder="Veuillez Retaper Votre Mot de Passe :" class="form-control" required=""><br>
 
-					        <button id="clic" type="button" class="btn btn-outline-info action="enregistrement">Envoyer !</button>
+					        <button id="clic" type="submit" class="btn btn-outline-info" action="inc/enregistrement.php">Envoyer !</button>
 
 					        <!-- <button
 								class="g-recaptcha"
