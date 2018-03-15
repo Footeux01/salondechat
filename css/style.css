@@ -11,6 +11,12 @@ body{
 
 #titre{
 	color: orange;
+	text-align: center;
+}
+
+#titre1{
+	color: red;
+	text-align: center;
 }
 
 label{
@@ -19,6 +25,7 @@ label{
 
 #messages{
 	color: white;
+	text-align: center;
 }
 
 /*Accueil*/
@@ -49,11 +56,13 @@ a{
 }
 
 #youyou{
+	text-align: center;
 	color: orange;
 	padding-bottom: 10%;
 }
 
 #espace{
+	text-align: center;
 	color: grey;
 	padding-bottom: 5%;
 }
@@ -81,9 +90,9 @@ body{
 	color: orange;
 }
 
-.form-signin .checkbox{
+/*.form-signin .checkbox{
 	font-weight: normal;
-}
+}*/
 
 .form-signin .form-control{
 	position: relative;
@@ -113,6 +122,11 @@ body{
 
 #pseudo{
 	color: orange;
+}
+
+.alert{
+	text-align: center;
+	margin-top: 3%;
 }
 
 #minichat{
@@ -163,4 +177,19 @@ body{
 .myButton:active{
 	position:relative;
 	top:1px;
+}
+
+#clic{
+	text-align: center;
+}
+
+#deconnexion{
+	text-align: right;
+	padding-right: 2%;
+}
+
+#footer{
+	margin-top: 4%;
+	color: orange;
+	text-align: center;
 }

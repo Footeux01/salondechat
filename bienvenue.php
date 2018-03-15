@@ -23,7 +23,7 @@
 		        </nav>
 		    </div><br>
 
-			<div class="alert alert-success">
+			<div class="alert alert-success" role="alert">
                 <p>Bienvenue !</p>
 
 			    <p>

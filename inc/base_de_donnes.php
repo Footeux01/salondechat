@@ -1,4 +1,9 @@
 <?php
+  session_start();
+  //include("inc/base_de_donnes.php");
+?>
+
+<?php
 
 	// Connexion à la base de données
 	try{
@@ -53,8 +58,8 @@
 		$_SESSION['email']   = $email;
 		$_SESSION['password'] = $ph;
 
-			// Redirection du visiteur vers la page du bienvenue
-			header('Location: /minichat.php');
+		// Redirection du visiteur vers la page du bienvenue
+		header('Location: /minichat.php');
 	}while(false);
 
 

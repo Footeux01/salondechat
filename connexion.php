@@ -1,6 +1,6 @@
 <?php
   session_start();
-  // include("inc/base_de_donnes.php");
+  //include("inc/base_de_donnes.php");
 ?>
 
 <!DOCTYPE html>
@@ -22,9 +22,9 @@
         <label for="password" type="password" class="sr-only input_field">Mot de Passe</label>
         <input id="password" class="form-control" name="password" placeholder="Mot de Passe" required="" type="password">
         <div class="checkbox">
-          <label>
+          <!-- <label>
             <input value="remember-me" type="checkbox"> Se souvenir de moi ?
-          </label>
+          </label> -->
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
       </form>

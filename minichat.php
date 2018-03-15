@@ -1,9 +1,20 @@
 <?php
     session_start();
 
+    // Evalué à vrai car $var est vide
+    if(empty($_SESSION['pseudo']) || empty($_SESSION['email']) || empty($_SESSION['password'])) {
+        echo 'Vous n\'avez pas renseigner tout les champs de connexion';
+            echo $_SESSION['pseudo'];
+            echo $_SESSION['email'];
+            echo $_SESSION['password'];
+        // header('Location: connexion.php');
+        exit;
+    }
+
     $pseudo = $_SESSION['pseudo'] ;
     $email = $_SESSION['email'] ;
     $password = $_SESSION['password'] ;
+
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +32,9 @@
                 </style>
 
             <body>
+
+                    <?php include("inc/deconnexion.php"); ?>
+
                 <form action="minichat_post.php" method="post">
 
                     <h1 id="minichat">Discutez librement 
