@@ -18,7 +18,7 @@
 
 
 <?php
-	/* Connexion à une base ODBC avec l'invocation de pilote */
+	// /* Connexion à une base ODBC avec l'invocation de pilote */
 	// $bdd = ('mysql:host=localhost;dbname=salon_de_chat;charset=utf8', 'root', '');
 	// $email = 'email';
 	// $password = 'password';
@@ -28,7 +28,6 @@
 	// } catch (PDOException $e) {
 	//     echo 'Connexion échouée : ' . $e->getMessage();
 	// }
-
 
 	do{
 		if(! isset($_POST['email'], $_POST['password'])){
@@ -40,7 +39,7 @@
 		$reponse->bindParam(1, $_POST['email'], PDO::PARAM_STR);
 		$reponse->execute();
 
-		if($reponse->rowCount() == 0){
+		if($reponse->rowCount() != 1){
 			echo 'Ce pseudo n\'existe pas';
 			exit;
 		}                                                                

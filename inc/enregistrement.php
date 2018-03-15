@@ -1,8 +1,20 @@
 <?php
 	session_start();
 
+	// include("base_de_donnes.php");
+
 	// Connexion à la base de données
-	include("base_de_donnes.php");
+	try{
+	    $bdd = new PDO('mysql:host=localhost;dbname=salon_de_chat;charset=utf8', 'root', '');
+	}
+
+	catch(Exception $e){
+	    die('Erreur : '.$e->getMessage());
+	}
+
+?>
+
+<?php
 
 	$pseudo = filter_input(INPUT_POST, 'pseudo', FILTER_SANITIZE_STRING);
 	$email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
@@ -14,7 +26,7 @@
 		exit;
 	}
 
-	if($pseudo = $password){
+	if($pseudo == $password){
 		echo "Le pseudo et le mot de passe ne peuvent pas être similaire !";
 		exit;
 	}
@@ -135,6 +147,6 @@
 	$_SESSION['password'] = $ph;
 
 	// Redirection du visiteur vers la page du bienvenue
-	header('Location: bienvenue.php');
+	header('Location: /bienvenue.php');
 
 ?>

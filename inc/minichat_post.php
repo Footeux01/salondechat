@@ -36,11 +36,11 @@
 
 	//Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
 
-	    echo '<p><strong>' . htmlspecialchars($donnees['pseudo']) . '</strong> : ' . htmlspecialchars($donnees['message']) . '</p>';
+	    echo '<p><strong>'  . htmlspecialchars($donnees['pseudo']) . '</strong> : ' . htmlspecialchars($donnees['message']) . '</p>';
 	
 
 	// Redirection du visiteur vers la page du minichat
-	header('Location: minichat.php');
+	header('Location: /minichat.php');
 
 ?>
 
