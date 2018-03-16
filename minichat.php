@@ -4,9 +4,9 @@
     // Evalué à vrai car $var est vide
     if(empty($_SESSION['pseudo']) || empty($_SESSION['email']) || empty($_SESSION['password'])) {
         echo 'Vous n\'êtes pas connecté';
-            // echo $_SESSION['pseudo'];
-            // echo $_SESSION['email'];
-            // echo $_SESSION['password'];
+             // echo $_SESSION['pseudo'];
+             // echo $_SESSION['email'];
+             // echo $_SESSION['password'];
         header('Location: connexion.php');
         exit;
     }
@@ -52,35 +52,39 @@
                      </p>
                 </form>
 
-                <?php
+                    <div class="chatonline">
 
-                // Connexion à la base de données
-                try
-                {
-                    $bdd = new PDO('mysql:host=localhost;dbname=salon_de_chat;charset=utf8', 'root', '');
-                    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                }
+                        <?php
 
-                catch(Exception $e)
+                            // Connexion à la base de données
+                            try
+                            {
+                                $bdd = new PDO('mysql:host=localhost;dbname=salon_de_chat;charset=utf8', 'root', '');
+                                $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                            }
 
-                {
-                    die('Erreur : '.$e->getMessage());
-                }
+                            catch(Exception $e)
+
+                            {
+                                die('Erreur : '.$e->getMessage());
+                            }
 
 
-                // Récupération des 10 derniers messages
-                $reponse = $bdd->query('SELECT created_at, pseudo, message FROM minichat');
+                            // Récupération des messages
+                            $reponse = $bdd->query('SELECT created_at, pseudo, message FROM minichat');
 
-                // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
+                            // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
 
-                while ($donnees = $reponse->fetch())
-                {
-                    echo '<p id="messages"> ' . htmlspecialchars ($donnees['created_at']) .' <strong>' . htmlspecialchars($donnees['pseudo']) . '</strong> : ' . htmlspecialchars($donnees['message']) . '</p>';
-                }
+                            while ($donnees = $reponse->fetch()){
 
-                $reponse->closeCursor();
+                                echo '<p id="messages"> ' .' <strong>' . htmlspecialchars($donnees['pseudo']) . ' : </strong><br> ' . htmlspecialchars($donnees['message']) . '</p>';
 
-                ?>
+                            }
+                                $reponse->closeCursor();
+                                
+                        ?>   
+
+                    </div>            
 
             </body>
 

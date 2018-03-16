@@ -43,7 +43,3 @@
 	header('Location: /minichat.php');
 
 ?>
-
-
-
-	

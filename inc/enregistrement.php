@@ -50,9 +50,9 @@
 	}
 
 	/*
-	  Nous voulons juste hacher notre mot de passe en utiliant l'algorithme par défaut.
-	  Actuellement, il s'agit de BCRYPT, ce qui produira un résultat sous forme de chaîne de
-	  caractères d'une longueur de 60 caractères.*/
+	Nous voulons juste hacher notre mot de passe en utiliant l'algorithme par défaut.
+	Actuellement, il s'agit de BCRYPT, ce qui produira un résultat sous forme de chaîne de
+	caractères d'une longueur de 60 caractères.*/
 
 	$ph = password_hash($password, PASSWORD_BCRYPT);
 		if($ph == FALSE){

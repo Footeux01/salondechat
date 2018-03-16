@@ -1,3 +1,12 @@
+/*Police*/
+/*Message dans le chat instantanée*/
+@import url('https://fonts.googleapis.com/css?family=Mina');
+/*Titre page d'accueil*/
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
+
+
+
 html{
 	padding: 0;
 	margin: 0;
@@ -8,6 +17,7 @@ body{
 	background-image: url('../img/fond.jpg');
 	background-repeat: no-repeat;
 }
+
 
 #titre{
 	color: orange;
@@ -33,6 +43,12 @@ label{
 #messages{
 	color: white;
 	text-align: center;
+}
+
+#messages strong{
+	color: darkgrey;
+	text-align: center;
+	font-family: 'Mina', sans-serif;
 }
 
 /*Accueil*/
@@ -66,6 +82,7 @@ a{
 	text-align: center;
 	color: orange;
 	padding-bottom: 10%;
+	font-family: 'Lobster', cursive;
 }
 
 #espace{
@@ -212,3 +229,7 @@ body{
 	text-align: center;
 }
 
+.chatonline{
+	background-image: url('../img/chat_fond.jpg');
+	background-repeat: no-repeat;
+}

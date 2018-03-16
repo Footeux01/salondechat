@@ -1,7 +1,7 @@
-<!-- <?php
-  //session_start();
+<?php
+  session_start();
   //include("inc/base_de_donnes.php");
-?> -->
+?>
 
 <?php
 
@@ -59,8 +59,7 @@
 
 		// Redirection du visiteur vers la page du bienvenue
 		header('Location: /minichat.php');
-	}while(false);
-
-
-
+	}
+		while(false);
+		
 ?>
