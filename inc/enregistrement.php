@@ -22,29 +22,29 @@
 	$password1 = filter_input(INPUT_POST, 'password1', FILTER_SANITIZE_STRING);
 
 	if(strlen($pseudo) < 8){
-		echo "Pseudo trop petit";
+		echo 'Pseudo trop petit.' . ' <br> '. ' <a href="/inscription.php"><button type="submit">Redirection à la page d\'inscription</button></a>';
 		exit;
 	}
 
 	if($pseudo == $password){
-		echo "Le pseudo et le mot de passe ne peuvent pas être similaire !";
+		echo 'Le pseudo et le mot de passe ne peuvent pas être similaire !' . ' <br> '. ' <a href="/inscription.php"><button type="submit">Redirection à la page d\'inscription</button></a>';
 		exit;
 	}
 
 	if(strlen($password) < 8){
-		echo "Mot de Passe trop petit";
+		echo 'Mot de Passe trop petit' . ' <br> '. ' <a href="/inscription.php"><button type="submit">Redirection à la page d\'inscription</button></a>';
 		exit;
 	}
 
 	if($password != $password1){
-		echo "Les deux mots de passes tapés ne sont pas identiques !";
+		echo 'Les deux mots de passes tapés ne sont pas identiques !' . ' <br> '. ' <a href="/inscription.php"><button type="submit">Redirection à la page d\'inscription</button></a>';
 		exit;
 	}
 
 	//Regex Pseudo
 	if (isset($_POST['pseudo'])){
 		if(preg_match('/^([A-Z]|[a-z]|[0-9]|[_])+$/', $pseudo) == 0){
-	        echo 'Le'.$_POST['pseudo'].' n\'est pas valide, recommencez !';
+	        echo 'Le'.$_POST['pseudo'].' n\'est pas valide, recommencez !' . ' <br> '. ' <a href="/inscription.php"><button type="submit">Redirection à la page d\'inscription</button></a>';
 	        exit;
 	    }
 	}
@@ -56,7 +56,7 @@
 
 	$ph = password_hash($password, PASSWORD_BCRYPT);
 		if($ph == FALSE){
-			echo "Veuillez réessayer le mot de passe n'a pas pu être crypter";
+			echo 'Veuillez réessayer le mot de passe n\'a pas pu être crypter.' . ' <br> '. ' <a href="/inscription.php"><button type="submit">Redirection à la page d\'inscription</button></a>';
 			exit;
 		}
 
@@ -131,16 +131,6 @@
         if (($_POST['email']) == ($email['email'])){
             echo "Cette adresse e-mail est déjà utilisé.";
         }
-	
-	/*
-	switch($pseudo){
-		case 'matthieu' : 
-			echo 'blabla';
-			break;
-
-		default :
-	}
-	*/
 
 	$_SESSION['pseudo'] = $pseudo;
 	$_SESSION['email']   = $email;

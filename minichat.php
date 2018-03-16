@@ -45,12 +45,7 @@
                         <label for="pseudo">Envoyez votre message </label>  
                         <?php echo $_SESSION['pseudo']; ?> <br />
 
-                        <label for="message">Message à poster :</label>   
-                        <input type="text" name="message" id="message" /><br />
-
-                        <input type="submit" class="btn btn-outline-warning" value="Envoyer" />
-                     </p>
-                </form>
+                        
 
                     <div class="chatonline">
 
@@ -81,10 +76,17 @@
 
                             }
                                 $reponse->closeCursor();
-                                
+
                         ?>   
 
-                    </div>            
+                    </div>  
+ 
+                        <input type="text" placeholder="Message à envoyer :" name="message" id="message" />
+
+                        <input type="submit" class="btn btn-outline-warning" value="Envoyer" />
+                     </p>
+                </form>
+
 
             </body>
 

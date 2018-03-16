@@ -31,7 +31,7 @@
 
 	do{
 		if(! isset($_POST['email'], $_POST['password'])){
-			echo 'Une erreur innatendue c\'est produite';
+			echo 'Une erreur innatendue c\'est produite.' . ' <br> '. ' <a href="/connexion.php"><button type="submit">Redirection à la page de connexion</button></a>';
 			exit;
 		}
 		
@@ -40,7 +40,7 @@
 		$reponse->execute();
 
 		if($reponse->rowCount() != 1){
-			echo 'Ce pseudo n\'existe pas';
+			echo 'Ce pseudo n\'existe pas' .' <br> '. ' <a href="/connexion.php"><button type="submit">Redirection à la page de connexion</button></a>';
 			exit;
 		}                                                                
 
@@ -50,7 +50,7 @@
 		$ph = $user_bdd['password'];
 		
 		if (! password_verify($_POST['password'], $ph)) {
-			echo 'Le mot de passe est invalide.';
+			echo 'Le mot de passe est invalide.' . ' <br> '. ' <a href="/connexion.php"><button type="submit">Redirection à la page de connexion</button></a>';
 			exit;
 		}
 		$_SESSION['pseudo'] = $pseudo;
