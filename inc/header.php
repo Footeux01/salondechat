@@ -2,7 +2,7 @@
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 			<link rel="stylesheet" type="text/css" href="css/style.css">
-        	<link rel="shortcut icon" type="image/x-icon" href="img/logo.ico"/>
+        	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
 			<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="favicon.ico" /><![endif]-->
 
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">

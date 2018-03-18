@@ -20,7 +20,7 @@
 <!DOCTYPE html>
         <html>
             <head>
-                <title>Mini-chat</title>
+                <title>MCG | Discutez librement</title>
 
                 <?php include("inc/header.php"); ?>
             </head>
@@ -52,17 +52,7 @@
                         <?php
 
                             // Connexion à la base de données
-                            try
-                            {
-                                $bdd = new PDO('mysql:host=localhost;dbname=salon_de_chat;charset=utf8', 'root', '');
-                                $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                            }
-
-                            catch(Exception $e)
-
-                            {
-                                die('Erreur : '.$e->getMessage());
-                            }
+                            include("inc/bdd.php");
 
 
                             // Récupération des messages

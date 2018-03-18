@@ -7,7 +7,7 @@
   <html>
     <head>
       
-      <title>Connexion</title>
+      <title>MCG | Connexion</title>
 
       <?php include("inc/header.php"); ?>
 

@@ -6,7 +6,7 @@
 	<html>
 		<head>
 		
-        	<title>MCG | Page d'accueil</title><br>
+        	<title>MCG | Bienvenue</title><br>
 
         	<?php include("inc/header.php"); ?>
 
