@@ -14,8 +14,7 @@ html{
 
 body{
 	text-align: center;
-	background-image: url('../img/fond.jpg');
-	background-repeat: no-repeat;
+	background: url('../img/fond.jpg'), no-repeat;
 }
 
 
@@ -238,9 +237,10 @@ body{
 	padding-bottom: 2%;
 	overflow:auto;
     word-wrap:break-word;
-	background-image: url('../img/chat_fond.jpg');
+	background-image: url('../img/fond_chat.jpg');
 	background-repeat: no-repeat;
 	border-style: medium;
+	border-radius: 2%;
 	width: 50%;
 	margin-left: 25%;
 }
