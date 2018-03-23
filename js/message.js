@@ -32,7 +32,7 @@ function refresh_msg(){
       }
     },
     error: function(objet, statut, error){
-      echo('/inc/erreur.php');
+      echo('erreur');
     }
   });
 }
