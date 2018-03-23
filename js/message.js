@@ -32,7 +32,7 @@ function refresh_msg(){
       }
     },
     error: function(objet, statut, error){
-      echo('erreur');
+      console.log(erreur);
     }
   });
 }
