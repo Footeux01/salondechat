@@ -35,6 +35,10 @@
 
                     <?php include("inc/deconnexion.php"); ?>
 
+                    <script type="text/javascript" src="./js/message.js"></script>
+
+                    <!-- <button type="button" id="actualisation" class="btn btn-outline-dark">Actualisation</button> -->
+
                 <form action="inc/minichat_post.php" method="post">
 
                     <h1 id="minichat">Discutez librement 
@@ -45,7 +49,6 @@
                         <label for="pseudo">Envoyez votre message </label>  
                         <?php echo $_SESSION['pseudo']; ?> <br />
 
-                        
 
                     <div class="chatonline">
 

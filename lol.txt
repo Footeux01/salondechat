@@ -1,0 +1,9 @@
+User-Agent: *
+
+Disallow: /400.php
+
+Disallow: /401.php
+
+Disallow: /402.php
+
+Disallow: /403.php
