@@ -65,7 +65,7 @@
 
                             while ($donnees = $reponse->fetch()){
 
-                                echo '<p id="messages"> ' .' <strong>' . htmlspecialchars($donnees['pseudo']) . ' : </strong><br> ' . htmlspecialchars($donnees['message']) . '</p>';
+                                '<p id="messages"> ' .' <strong>' . htmlspecialchars($donnees['pseudo']) . ' : </strong><br> ' . htmlspecialchars($donnees['message']) . '</p>'
 
                             }
                                 $reponse->closeCursor();
@@ -79,7 +79,6 @@
                         <input type="submit" class="btn btn-outline-warning" value="Envoyer" />
                      </p>
                 </form>
-
 
             </body>
 
